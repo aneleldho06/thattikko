@@ -14,7 +14,113 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      pairing_attempts: {
+        Row: {
+          attempts: number
+          client_key: string
+          locked_until: string | null
+          updated_at: string
+        }
+        Insert: {
+          attempts?: number
+          client_key: string
+          locked_until?: string | null
+          updated_at?: string
+        }
+        Update: {
+          attempts?: number
+          client_key?: string
+          locked_until?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      sessions: {
+        Row: {
+          created_at: string
+          expires_at: string
+          failed_attempts: number
+          id: string
+          paired_at: string | null
+          pairing_code_hash: string
+          pc_token_hash: string | null
+          phone_token_hash: string
+          status: string
+        }
+        Insert: {
+          created_at?: string
+          expires_at: string
+          failed_attempts?: number
+          id?: string
+          paired_at?: string | null
+          pairing_code_hash: string
+          pc_token_hash?: string | null
+          phone_token_hash: string
+          status?: string
+        }
+        Update: {
+          created_at?: string
+          expires_at?: string
+          failed_attempts?: number
+          id?: string
+          paired_at?: string | null
+          pairing_code_hash?: string
+          pc_token_hash?: string | null
+          phone_token_hash?: string
+          status?: string
+        }
+        Relationships: []
+      }
+      transfers: {
+        Row: {
+          content: string | null
+          created_at: string
+          direction: string
+          filename: string | null
+          id: string
+          kind: string
+          language: string | null
+          mime_type: string | null
+          session_id: string
+          size: number
+          storage_path: string | null
+        }
+        Insert: {
+          content?: string | null
+          created_at?: string
+          direction?: string
+          filename?: string | null
+          id?: string
+          kind: string
+          language?: string | null
+          mime_type?: string | null
+          session_id: string
+          size?: number
+          storage_path?: string | null
+        }
+        Update: {
+          content?: string | null
+          created_at?: string
+          direction?: string
+          filename?: string | null
+          id?: string
+          kind?: string
+          language?: string | null
+          mime_type?: string | null
+          session_id?: string
+          size?: number
+          storage_path?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "transfers_session_id_fkey"
+            columns: ["session_id"]
+            isOneToOne: false
+            referencedRelation: "sessions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
