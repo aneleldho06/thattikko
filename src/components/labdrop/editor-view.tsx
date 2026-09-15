@@ -79,7 +79,6 @@ export default function LabDropEditor({
         highlightActiveLineGutter: !readOnly,
         foldGutter: false,
         autocompletion: false,
-        searchTop: false,
       }}
       extensions={[...extensionsFor(language), theme, EditorView.lineWrapping]}
       onChange={onChange ?? (() => {})}
