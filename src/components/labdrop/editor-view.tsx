@@ -70,7 +70,7 @@ export default function LabDropEditor({
       value={value}
       readOnly={readOnly}
       editable={!readOnly}
-      placeholder={placeholder}
+      {...(placeholder ? { placeholder } : {})}
       minHeight={minHeight}
       {...(maxHeight ? { maxHeight } : {})}
       basicSetup={{
