@@ -213,7 +213,7 @@ function SendPanel({
   creds,
   onSent,
 }: {
-  creds: { sessionId: string; token: string; role: "phone" };
+  creds: Credentials;
   onSent: () => void;
 }) {
   const [tab, setTab] = useState<Tab>("code");
@@ -238,7 +238,7 @@ function SendPanel({
     setBusy(true);
     setError(null);
     const result = await sendTextFn({
-      data: { ...creds, kind, language: kind === "code" ? language : null, content },
+      data: { ...creds, kind, language: kind === "code" ? language : undefined, content },
     });
     setBusy(false);
     if ("error" in result && result.error) {

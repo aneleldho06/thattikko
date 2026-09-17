@@ -220,7 +220,7 @@ function TransferCard({
   creds,
 }: {
   item: TransferItem;
-  creds: { sessionId: string; token: string; role: "pc" };
+  creds: Credentials;
 }) {
   const [copied, setCopied] = useState(false);
   const [url, setUrl] = useState<string | null>(null);
