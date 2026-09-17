@@ -240,7 +240,7 @@ function SendPanel({
     setBusy(true);
     setError(null);
     const result = await sendTextFn({
-      data: { ...creds, kind, language: kind === "code" ? language : undefined, content },
+      data: { ...creds, kind, content, ...(kind === "code" ? { language } : {}) },
     });
     setBusy(false);
     if ("error" in result && result.error) {
