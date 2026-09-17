@@ -1,7 +1,9 @@
 import { createFileRoute, ClientOnly, Link } from "@tanstack/react-router";
 import { lazy, Suspense, useEffect, useMemo, useRef, useState } from "react";
 
-import { LabDropWordmark } from "@/components/labdrop/Logo";
+import { ThattikkoWordmark } from "@/components/labdrop/Logo";
+import { MarqueeFooter } from "@/components/labdrop/site-chrome";
+import type { Credentials } from "@/lib/labdrop-client";
 import {
   createSessionFn,
   sendTextFn,
@@ -213,7 +215,7 @@ function SendPanel({
   creds,
   onSent,
 }: {
-  creds: { sessionId: string; token: string; role: "phone" };
+  creds: Credentials;
   onSent: () => void;
 }) {
   const [tab, setTab] = useState<Tab>("code");
@@ -238,7 +240,7 @@ function SendPanel({
     setBusy(true);
     setError(null);
     const result = await sendTextFn({
-      data: { ...creds, kind, language: kind === "code" ? language : null, content },
+      data: { ...creds, kind, content, ...(kind === "code" ? { language } : {}) },
     });
     setBusy(false);
     if ("error" in result && result.error) {
