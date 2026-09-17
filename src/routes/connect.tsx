@@ -1,7 +1,9 @@
 import { createFileRoute, ClientOnly, Link } from "@tanstack/react-router";
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
 
-import { LabDropWordmark } from "@/components/labdrop/Logo";
+import { ThattikkoWordmark } from "@/components/labdrop/Logo";
+import { MarqueeFooter } from "@/components/labdrop/site-chrome";
+import type { Credentials } from "@/lib/labdrop-client";
 import { joinSessionFn, downloadUrlFn, endSessionFn } from "@/lib/labdrop.functions";
 import {
   clearCredentials,
