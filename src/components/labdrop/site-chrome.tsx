@@ -3,9 +3,8 @@ import { Link } from "@tanstack/react-router";
 import { ThattikkoWordmark } from "./Logo";
 
 const MARQUEE_TEXT =
-  //'NO LOGIN • NO GOOGLE • NO PASSWORDS • NO "DID I LOG OUT?" • JUST SEND IT • COPY IT • PASTE IT • GET YOUR CODE FROM PHONE TO PC • THATTIKKO MAKES IT EASY • NOTHING LEFT BEHIND • ';
-  'NO LOGIN • NO LOGOUT • NO PROBLEM • JUST THATTIKKO • COPY • PASTE • DONE •';
-
+  'NO LOGIN • NO GOOGLE • NO PASSWORDS • NO "DID I LOG OUT?" • JUST SEND IT • COPY IT • PASTE IT • GET YOUR CODE FROM PHONE TO PC • THATTIKKO MAKES IT EASY • NOTHING LEFT BEHIND • ';
+  
 const NAV = [
   { to: "/how-it-works", label: "How it works" },
   { to: "/features", label: "Features" },
