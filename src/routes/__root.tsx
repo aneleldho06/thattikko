@@ -106,21 +106,51 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   errorComponent: ErrorComponent,
 });
 
+// function RootShell({ children }: { children: ReactNode }) {
+//   return (
+//     <html lang="en">
+//       <head>
+//         <HeadContent />
+//         <!-- Google tag (gtag.js) -->
+//           <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z5V6Y3LLJ2"></script>
+//           <script>
+//             window.dataLayer = window.dataLayer || [];
+//             function gtag(){dataLayer.push(arguments);}
+//             gtag('js', new Date());
+
+//             gtag('config', 'G-Z5V6Y3LLJ2');
+//           </script>
+//       </head>
+//       <body>
+//         {children}
+//         <Scripts />
+//       </body>
+//     </html>
+//   );
+// }
 function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
         <HeadContent />
-        <!-- Google tag (gtag.js) -->
-          <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z5V6Y3LLJ2"></script>
-          <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
 
-            gtag('config', 'G-Z5V6Y3LLJ2');
-          </script>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-Z5V6Y3LLJ2"
+        ></script>
+
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){window.dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-Z5V6Y3LLJ2');
+            `,
+          }}
+        ></script>
       </head>
+
       <body>
         {children}
         <Scripts />
