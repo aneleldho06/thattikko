@@ -28,13 +28,13 @@ const LabDropEditor = lazy(() => import("@/components/labdrop/editor-view"));
 export const Route = createFileRoute("/session")({
   head: () => ({
     meta: [
-      { title: "Create a session — LabDrop" },
+      { title: "Create a session — തട്ടിക്കോ.fun" },
       {
         name: "description",
         content:
-          "Create a temporary LabDrop session on your phone and send code, text, images and files to a shared computer.",
+          "Create a temporary തട്ടിക്കോ.fun session on your phone and send code, text, images and files to a shared computer.",
       },
-      { property: "og:title", content: "Create a session — LabDrop" },
+      { property: "og:title", content: "Create a session — തട്ടിക്കോ.fun" },
       {
         property: "og:description",
         content: "Get a 6-digit code, pair the shared computer, and send your work across in seconds.",

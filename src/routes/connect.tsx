@@ -20,13 +20,13 @@ const LabDropEditor = lazy(() => import("@/components/labdrop/editor-view"));
 export const Route = createFileRoute("/connect")({
   head: () => ({
     meta: [
-      { title: "Join a session — LabDrop" },
+      { title: "Join a session — തട്ടിക്കോ.fun" },
       {
         name: "description",
         content:
           "Enter the 6-digit code from your phone to receive code, text, images and files on this shared computer. No sign-in needed.",
       },
-      { property: "og:title", content: "Join a session — LabDrop" },
+      { property: "og:title", content: "Join a session — തട്ടിക്കോ.fun" },
       {
         property: "og:description",
         content: "Type the 6-digit code shown on your phone and pick up your work on this computer.",
