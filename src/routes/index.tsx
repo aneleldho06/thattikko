@@ -29,7 +29,7 @@ function Landing() {
     <PageShell>
       <section className="mx-auto flex max-w-6xl flex-col items-center px-5 py-10 text-center sm:py-16">
         <img
-          src={heroAsset.url}
+          src={heroAsset} //changed .url thing
           alt="തട്ടിക്കോ.fun"
           className="w-full max-w-3xl select-none"
           draggable={false}
