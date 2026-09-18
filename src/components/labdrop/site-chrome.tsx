@@ -37,8 +37,7 @@ export function SiteHeader({ right }: { right?: React.ReactNode }) {
 export function MarqueeFooter() {
   return (
     <footer className="mt-auto w-full overflow-hidden bg-primary py-3">
-      <div className="marquee-track flex w-max gap-8 whitespace-nowrap font-display text-sm tracking-wide text-primary-foreground sm:text-base">
-        <span>{MARQUEE_TEXT}</span>
+      <div className="marquee-track flex w-max gap-8 whitespace-nowrap font-mono text-xs font-bold tracking-[0.12em] text-primary-foreground sm:text-sm">
         <span aria-hidden="true">{MARQUEE_TEXT}</span>
       </div>
     </footer>
