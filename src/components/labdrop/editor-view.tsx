@@ -41,7 +41,24 @@ function extensionsFor(language: string): Extension[] {
 }
 
 const theme = EditorView.theme({
-  "&": { fontSize: "13px", backgroundColor: "transparent" },
+  "&": {
+    fontSize: "13px",
+    backgroundColor: "transparent",
+    color: "var(--color-foreground)",
+  },
+  ".cm-content": { caretColor: "var(--color-foreground)" },
+  ".cm-cursor, .cm-dropCursor": { borderLeftColor: "var(--color-foreground)" },
+  ".cm-gutters": {
+    backgroundColor: "transparent",
+    color: "color-mix(in oklab, var(--color-foreground) 55%, transparent)",
+    border: "none",
+  },
+  ".cm-activeLine, .cm-activeLineGutter": {
+    backgroundColor: "color-mix(in oklab, var(--color-foreground) 8%, transparent)",
+  },
+  ".cm-selectionBackground, &.cm-focused .cm-selectionBackground, ::selection": {
+    backgroundColor: "color-mix(in oklab, var(--color-foreground) 30%, transparent)",
+  },
   ".cm-scroller": { fontFamily: "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" },
   "&.cm-focused": { outline: "none" },
 });
@@ -68,6 +85,8 @@ export default function LabDropEditor({
   return (
     <CodeMirror
       value={value}
+      theme="none"
+      className="bg-transparent"
       readOnly={readOnly}
       editable={!readOnly}
       {...(placeholder ? { placeholder } : {})}

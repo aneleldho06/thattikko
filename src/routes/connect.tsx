@@ -1,8 +1,7 @@
 import { createFileRoute, ClientOnly, Link } from "@tanstack/react-router";
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
 
-import { ThattikkoWordmark } from "@/components/labdrop/Logo";
-import { MarqueeFooter } from "@/components/labdrop/site-chrome";
+import { PageShell } from "@/components/labdrop/site-chrome";
 import type { Credentials } from "@/lib/labdrop-client";
 import { joinSessionFn, downloadUrlFn, endSessionFn } from "@/lib/labdrop.functions";
 import {
@@ -21,13 +20,13 @@ const LabDropEditor = lazy(() => import("@/components/labdrop/editor-view"));
 export const Route = createFileRoute("/connect")({
   head: () => ({
     meta: [
-      { title: "Join a session — LabDrop" },
+      { title: "Join a session — തട്ടിക്കോ.fun" },
       {
         name: "description",
         content:
           "Enter the 6-digit code from your phone to receive code, text, images and files on this shared computer. No sign-in needed.",
       },
-      { property: "og:title", content: "Join a session — LabDrop" },
+      { property: "og:title", content: "Join a session — തട്ടിക്കോ.fun" },
       {
         property: "og:description",
         content: "Type the 6-digit code shown on your phone and pick up your work on this computer.",
@@ -343,16 +342,8 @@ function TransferCard({
 
 function Shell({ children }: { children?: React.ReactNode }) {
   return (
-    <div className="min-h-screen bg-background">
-      <header className="border-b border-border">
-        <div className="mx-auto flex max-w-4xl items-center justify-between px-5 py-4">
-          <Link to="/">
-            <LabDropWordmark subtle />
-          </Link>
-          <span className="text-xs text-muted-foreground">Shared computer</span>
-        </div>
-      </header>
+    <PageShell right={<span className="text-sm text-primary/80">Shared computer</span>}>
       {children}
-    </div>
+    </PageShell>
   );
 }
