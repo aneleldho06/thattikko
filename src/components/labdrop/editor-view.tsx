@@ -85,6 +85,8 @@ export default function LabDropEditor({
   return (
     <CodeMirror
       value={value}
+      theme="none"
+      className="bg-transparent"
       readOnly={readOnly}
       editable={!readOnly}
       {...(placeholder ? { placeholder } : {})}
