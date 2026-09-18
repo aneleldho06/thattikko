@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
 import { PageShell } from "@/components/labdrop/site-chrome";
-import heroAsset from "@/assets/thattikko-3d.png.asset.json";
+//import heroAsset from "@/assets/thattikko-3d.png.asset.json";
+import heroAsset from "@/assets/thattikko-3d.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
